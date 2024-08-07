@@ -134,6 +134,7 @@ ARG USE_NCCL=0
 ARG USE_SYSTEM_NCCL=0
 ARG USE_OPENCV=0
 ARG USE_DISTRIBUTED=0
+ARG CUDACXX=/usr/local/cuda/bin/nvcc
 
 # Build
 RUN cd /pytorch \
