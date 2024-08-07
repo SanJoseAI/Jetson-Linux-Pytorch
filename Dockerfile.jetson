@@ -26,7 +26,7 @@ ARG DPKG_STATUS
 RUN echo "$DPKG_STATUS" >> /var/lib/dpkg/status \
     && echo "[Builder] Installing Prerequisites" \
     && apt-get update \
-    && apt-get install -y --no-install-recommends wget ca-certificates software-properties-common curl gnupg2 apt-utils \
+    && apt-get install -y --no-install-recommends wget cmake ninja-build ca-certificates software-properties-common curl gnupg2 apt-utils \
     && echo "[Builder] Installing CUDA Repository" \
     && curl https://repo.download.nvidia.com/jetson/jetson-ota-public.asc > /etc/apt/trusted.gpg.d/jetson-ota-public.asc \
     && echo "deb https://repo.download.nvidia.com/jetson/common ${V_L4T} main" >> /etc/apt/sources.list.d/nvidia-l4t-apt-source.list \
