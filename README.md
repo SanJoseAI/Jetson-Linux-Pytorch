@@ -4,6 +4,7 @@
 
 This repository focuses on allowing you to build PyTorch (and other packages) for ARM64 devices (e.g. Nvidia Jetson Nano) on an AMD64 machine. Removing the need of building these packages on those small devices themselves.
 
+Pythoncrazy note: This is meant to be for python 3.12
 ## Requirements
 
 While working on AI Models to run on the Nvidia Jetson Nano, I had a need for a Python version > 3.6. After doing some research, it appeared that Nvidia only offers Python 3.6 for the ARM64 (aarch64) architecture, creating the need to compile PyTorch from source. Another complexity added to this was that I needed CUDA support to utilize the GPU on the Nvidia Jetson device.
