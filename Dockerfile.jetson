@@ -33,6 +33,7 @@ RUN echo "$DPKG_STATUS" >> /var/lib/dpkg/status \
     && echo "deb https://repo.download.nvidia.com/jetson/t194 ${V_L4T} main" >> /etc/apt/sources.list.d/nvidia-l4t-apt-source.list \
     && echo "[Builder] Installing CUDA System" \
     && apt-get update \
+    && mkdir -p /opt/nvidia/l4t-packages/ \
     && touch /opt/nvidia/l4t-packages/.nv-l4t-disable-boot-fw-update-in-preinstall \
     && wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb \
     && dpkg -i cuda-keyring_1.1-1_all.deb \
