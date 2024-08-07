@@ -1,13 +1,13 @@
 # ##################################################################################
 # Setup Nvidia CUDA for Jetson
 # ##################################################################################
-FROM ubuntu:18.04 as cuda-devel
+FROM ubuntu:20.04 as cuda-devel
 
 # Configuration Arguments
-ARG V_CUDA_MAJOR=10
-ARG V_CUDA_MINOR=2
-ARG V_L4T_MAJOR=32
-ARG V_L4T_MINOR=6
+ARG V_CUDA_MAJOR=12
+ARG V_CUDA_MINOR=4
+ARG V_L4T_MAJOR=35
+ARG V_L4T_MINOR=5
 
 ENV V_CUDA=${V_CUDA_MAJOR}.${V_CUDA_MINOR}
 ENV V_CUDA_DASH=${V_CUDA_MAJOR}-${V_CUDA_MINOR}
@@ -57,11 +57,11 @@ FROM --platform=$BUILDPLATFORM ubuntu:18.04 as downloader-pytorch
 
 # Configuration Arguments
 # https://github.com/pytorch/pytorch
-ARG V_PYTORCH=v1.10.0
+ARG V_PYTORCH=v2.4.0
 # https://github.com/pytorch/vision
-ARG V_PYTORCHVISION=v0.11.1
+ARG V_PYTORCHVISION=v0.19.0
 # https://github.com/pytorch/audio
-ARG V_PYTORCHAUDIO=v0.10.0
+ARG V_PYTORCHAUDIO=v2.4.0
 
 # Install Git Tools
 RUN apt-get update \
@@ -82,7 +82,7 @@ FROM cuda-devel as builder
 
 # Configuration Arguments
 ARG V_PYTHON_MAJOR=3
-ARG V_PYTHON_MINOR=9
+ARG V_PYTHON_MINOR=12
 
 ENV V_PYTHON=${V_PYTHON_MAJOR}.${V_PYTHON_MINOR}
 
@@ -93,7 +93,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get install -y clang build-essential bash ca-certificates git wget cmake curl software-properties-common ffmpeg libsm6 libxext6 libffi-dev libssl-dev xz-utils zlib1g-dev liblzma-dev
 
-# Setting up Python 3.9
+# Setting up Python 3.12
 WORKDIR /install
 
 RUN add-apt-repository ppa:deadsnakes/ppa \
@@ -132,7 +132,6 @@ ARG USE_NNPACK=0
 ARG USE_XNNPACK=0
 ARG USE_QNNPACK=0
 ARG USE_PYTORCH_QNNPACK=0
-ARG TORCH_CUDA_ARCH_LIST="5.3;6.2;7.2"
 ARG USE_NCCL=0
 ARG USE_SYSTEM_NCCL=0
 ARG USE_OPENCV=0
