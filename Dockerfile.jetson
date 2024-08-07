@@ -33,10 +33,10 @@ RUN echo "$DPKG_STATUS" >> /var/lib/dpkg/status \
     && echo "deb https://repo.download.nvidia.com/jetson/t194 ${V_L4T} main" >> /etc/apt/sources.list.d/nvidia-l4t-apt-source.list \
     && echo "[Builder] Installing CUDA System" \
     && apt-get update \
-    && wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb
-    && dpkg -i cuda-keyring_1.1-1_all.deb
-    && apt-get update
-    && apt-get -y install cuda-toolkit-${V_CUDA_DASH} cuda-compat-${V_CUDA_DASH}
+    && wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/arm64/cuda-keyring_1.1-1_all.deb \
+    && dpkg -i cuda-keyring_1.1-1_all.deb \
+    && apt-get update \
+    && apt-get -y install cuda-toolkit-${V_CUDA_DASH} cuda-compat-${V_CUDA_DASH} \
     && ln -s /usr/local/cuda-${V_CUDA} /usr/local/cuda \
     && rm -rf /var/lib/apt/lists/*
 
