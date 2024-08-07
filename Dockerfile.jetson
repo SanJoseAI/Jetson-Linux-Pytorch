@@ -1,7 +1,7 @@
 # ##################################################################################
 # Setup Nvidia CUDA for Jetson
 # ##################################################################################
-FROM ubuntu:20.04 as cuda-devel
+FROM ubuntu:22.04 as cuda-devel
 
 # Configuration Arguments
 ARG V_CUDA_MAJOR=12
