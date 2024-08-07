@@ -97,8 +97,8 @@ WORKDIR /install
 RUN add-apt-repository ppa:deadsnakes/ppa \
     && apt-get update \
     && apt-get install -y python${V_PYTHON} python${V_PYTHON}-dev python${V_PYTHON}-venv python${V_PYTHON_MAJOR}-tk \
-    && rm /usr/bin/python \
-    && rm /usr/bin/python${V_PYTHON_MAJOR} \
+    && rm /usr/bin/python || true \
+    && rm /usr/bin/python${V_PYTHON_MAJOR} || true \
     && ln -s $(which python${V_PYTHON}) /usr/bin/python \
     && ln -s $(which python${V_PYTHON}) /usr/bin/python${V_PYTHON_MAJOR} \
     && curl --silent --show-error https://bootstrap.pypa.io/get-pip.py | python
