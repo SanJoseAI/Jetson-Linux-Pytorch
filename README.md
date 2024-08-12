@@ -27,6 +27,7 @@ Summarized Requirements:
 * V_PYTORCHVISION=v0.11.1
 * V_PYTORCHAUDIO=v0.10.0
 
+This does not matter, as I have removed the pytorch version, instead building the latest one always.
 ## Building PyTorch
 
 ### Prerequisites
