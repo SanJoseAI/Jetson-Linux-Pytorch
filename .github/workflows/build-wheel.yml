@@ -9,7 +9,7 @@ on:
 
 jobs:
   build_wheels:
-      runs-on: namespace-profile-jetson-device
+      runs-on: self-hosted
       steps:
         - name: Checkout Code
           uses: actions/checkout@v2
