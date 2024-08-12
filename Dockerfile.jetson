@@ -55,11 +55,11 @@ FROM --platform=$BUILDPLATFORM ubuntu:18.04 as downloader-pytorch
 
 # Configuration Arguments
 # https://github.com/pytorch/pytorch
-ARG V_PYTORCH=v2.4.0
+# ARG V_PYTORCH=v2.4.0
 # https://github.com/pytorch/vision
-ARG V_PYTORCHVISION=v0.19.0
+# ARG V_PYTORCHVISION=v0.19.0
 # https://github.com/pytorch/audio
-ARG V_PYTORCHAUDIO=v2.4.0
+# ARG V_PYTORCHAUDIO=v2.4.0
 
 # Install Git Tools
 RUN apt-get update \
@@ -71,8 +71,8 @@ RUN apt-get update \
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Clone Source
-RUN git clone --recursive --branch ${V_PYTORCH} http://github.com/pytorch/pytorch
-
+RUN git clone --recursive http://github.com/pytorch/pytorch
+# For branch: --branch ${V_PYTORCH}
 # ##################################################################################
 # Build PyTorch for Jetson (with CUDA)
 # ##################################################################################
