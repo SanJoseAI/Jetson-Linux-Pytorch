@@ -25,7 +25,7 @@ jobs:
         
         - name: Build Docker Image
           run: |
-            docker build \
+            docker buildx build \
               --platform=linux/arm64 \
               --progress=plain \
               --output type=local,dest=./wheels \
